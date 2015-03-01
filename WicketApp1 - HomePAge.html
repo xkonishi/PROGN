@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd"  
+      xml:lang="en"  
+      lang="en"> 
+    <head> 
+        <wicket:head> 
+            <title>Wicket Example</title> 
+        </wicket:head> 
+    </head> 
+    <body> 
+        <wicket:extend> 
+            <h1 wicket:id="message">This gets replaced</h1>
+            <table style="table-layout: fixed; " width="200" border="1">
+                <thead>
+                    <wicket:enclosure>
+                        <tr>
+                            <th style="background:#0000ff;color:#ffffff; " width="10">AA</th>
+                            <th width="200"><span wicket:id="multiLineLabel" >this text will be replaced</span></th>
+                            <th width="100"><span>XXXX</span></th>
+                        </tr>
+                    </wicket:enclosure>
+                </thead>
+                <tbody>
+                    <tr style="">
+                        <td style="white-space: nowrap; overflow: hidden;" width="10"><span><a href="#" target="_new" wicket:id="externalLink1">this body will be replaced</a></span></td>
+                        <td style="overflow: hidden;">NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN</td>
+                        <td>xxx</td>
+                    </tr>
+                    <wicket:remove>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </wicket:remove>
+                </tbody>
+            </table>
+
+            <table border="1">
+                <tbody>
+                    <tr wicket:id="simple">
+                        <td><span wicket:id="id">XXX</span></td>
+                    </tr>
+                </tbody>
+            </table>        
+            <div wicket:id="navigator"></div>
+
+            <span wicket:id="markupLabel" class="mark">this text will be replaced</span>
+        </wicket:extend> 
+
+    </body> 
+</html>
