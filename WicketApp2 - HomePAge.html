@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd"  
+      xml:lang="en"  
+      lang="en"> 
+    <head> 
+        <wicket:head> 
+            <title>Wicket Example</title> 
+        </wicket:head> 
+    </head> 
+    <body> 
+        <wicket:extend> 
+            <!--<h1 wicket:id="message">This gets replaced</h1>-->
+
+            <table style="table-layout: fixed; " border="1">
+                <thead>
+                    <tr>
+                        <th wicket:id="titleList"><span wicket:id="title"></span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr wicket:id="parentListView">
+                        <td width="100" wicket:id="childListView"><wicket:container wicket:id="divLabel" /></td>
+                        <!--<td width="100" wicket:id="childListView"><span wicket:id="listlabel"></span><wicket:container wicket:id="divLabel" /></td>-->
+                        <!--<td wicket:id="childListView"><input type="text" wicket:id="listlabel"></input></td>-->
+                        <!--<td width="100" wicket:id="childListView"><select wicket:id="listlabel"></select></td>-->
+                    </tr>
+                </tbody>
+            </table>
+        </wicket:extend> 
+    </body> 
+</html>
