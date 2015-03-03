@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd"  
+      xml:lang="en"  
+      lang="en"> 
+    <head> 
+        <wicket:head> 
+            <title>Wicket Example</title> 
+        </wicket:head> 
+    </head> 
+    <body> 
+        <wicket:extend> 
+            <h1 wicket:id="message">This gets replaced</h1>
+            <select wicket:id="combo">
+                <option>AAA</option>
+            </select>
+
+            <form wicket:id="form">
+                前回入力値：<span wicket:id="samplelabel" />
+                <br />
+                <wicket:enclosure>
+                <input type="text" wicket:id="sampletext" />
+                </wicket:enclosure>
+                <input type="submit" wicket:id="submit" value="送信" />
+            </form>            
+        </wicket:extend> 
+    </body> 
+</html>
