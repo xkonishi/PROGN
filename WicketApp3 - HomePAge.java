@@ -15,6 +15,7 @@ import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.Model;
+import org.apache.wicket.model.PropertyModel;
 
 public class HomePage extends BasePage {
 
@@ -37,10 +38,10 @@ public class HomePage extends BasePage {
         add(form);
 
         sampleText = new Model();
-        form.add(new TextField("sampletext", sampleText));
+        form.add(new TextField("sampletext", new PropertyModel(this, "sampleText")));
 
         sampleLabel = new Model();
-        form.add(new Label("samplelabel", sampleLabel) {
+        form.add(new Label("samplelabel", new PropertyModel(this, "sampleLabel")) {
             @Override
             public boolean isVisible() {
                 return true;
