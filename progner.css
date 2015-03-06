@@ -1,0 +1,361 @@
+/*------------------------------------------------------------------------------
+ * HTMLタグ
+ *----------------------------------------------------------------------------*/
+/* 全体 */
+body {
+    background: #eeeeee;
+    color: #000000;
+    font-family: Verdana;
+    font-size: 10pt;
+    margin: 0px;
+    padding: 0px;
+    overflow: auto;
+}
+
+/* フォーム */
+form {
+    margin: 0px;
+    padding: 0px;
+}
+
+/* フィールドセット */
+fieldset {
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+/* フィールドセット (見出し) */
+legend {
+    font-size: 11pt;
+}
+
+/* テーブル */
+table {
+    color: #000000;
+    font-size: 10pt;
+    font-family: Verdana;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* 列 (見出し) */
+th {
+    color: #ffffff;
+    background-color: #4A385A;
+    border: 1px solid #909090;
+    filter: alpha(style=1, opacity=60, finishopacity=70);
+}
+
+/* 列 */
+td {
+}
+
+/* 入力ボックス */
+input {
+    color: #000000;
+    font-size: 10pt;
+    font-family: Verdana;
+    border: 1px solid #909090;
+    padding-top: 1px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 1px;
+}
+
+/* テキストエリア */
+textarea {
+    color: #000000;
+    font-size: 10pt;
+    font-family: Verdana;
+    border: 1px solid #909090;
+    padding-top: 1px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 1px;
+}
+
+/* ラベル */
+span, div {
+    color: #000000;
+    font-size: 10pt;
+    font-family: Verdana;
+}
+
+/* リストボックス */
+select {
+    color: #000000;
+    font-size: 10pt;
+    font-family: Verdana;
+    border: 1px solid #909090;
+    padding-top: 1px;
+    padding-left: 1px;
+    padding-right: 1px;
+    padding-bottom: 1px;
+}
+
+/*------------------------------------------------------------------------------
+ * 独自クラス (共通レイアウト)
+ *----------------------------------------------------------------------------*/
+/* ヘッダ部 */
+.header {
+    color: #ffffff;
+    background-color: #4A385A;
+    border: 0px;
+    width: 1015px;
+    filter: alpha(style=1, opacity=60, finishopacity=100);
+}
+
+/* ヘッダ部 (ダイアログ) */
+.header-dialog {
+    color: #ffffff;
+    background-color: #4A385A;
+    border: 0px;
+    width: 675px;
+    filter: alpha(style=1, opacity=60, finishopacity=100);
+}
+
+/* ヘッダタイトル */
+.header-title {
+    color: #ffffff;
+    font-size: 14pt;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+/* ヘッダ項目 */
+.header-item {
+    color: #ffffff;
+    font-size: 8pt;
+}
+
+/* アプリケーション部 */
+.application {
+    overflow: auto;
+    position: relative;
+    /* IE6 */
+    width: 1010px;
+    height: 548px;
+}
+
+/* アプリケーション部 (ダイアログ) */
+.application-dialog {
+    overflow: auto;
+    position: relative;
+    /* IE6 */
+    width: 670px;
+    height: 425px;
+}
+
+/* フッタ部 */
+.footer {
+    color: #ffffff;
+    background-color: #4A385A;
+    border: 0px;
+    width: 1015px;
+    filter: alpha(style=1, opacity=100, finishopacity=60);
+}
+
+/* フッタ部 (ダイアログ) */
+.footer-dialog {
+    color: #ffffff;
+    background-color: #4A385A;
+    border: 0px;
+    width: 675px;
+    filter: alpha(style=1, opacity=100, finishopacity=60);
+}
+
+/* フッタ項目 */
+.footer-item {
+    color: #ffffff;
+    font-size : 8pt;
+}
+
+/* フッタボタン */
+.footer-button {
+    color: #ccffff;
+    background-color: transparent;
+    font-size: 11pt;
+    font-weight: bold;
+    border: 1px solid #c0c0c0;
+    width: 75px;
+}
+
+/* フッタボタン (ハイライト) */
+.footer-button-hilight {
+    color: #ccffff;
+    background-color: #94308C;
+    font-size: 11pt;
+    font-weight: bold;
+    border: 1px solid #c0c0c0;
+    width: 75px;
+}
+
+/* メッセージ */
+.message {
+    width: 100%;
+    background-color: #ffffff;
+    font-size: 11pt;
+    font-weight: bold;
+    color: #000000;
+    filter: alpha(style=1, opacity=100, finishopacity=90);
+}
+
+/* メッセージ (正常) */
+.message-normal {
+    width: 100%;
+    background-color: #ffffff;
+    font-size: 11pt;
+    font-weight: bold;
+    color: #0000ff;
+    filter: alpha(style=1, opacity=100, finishopacity=90);
+}
+
+/* メッセージ (警告) */
+.message-warning {
+    width: 100%;
+    background-color: #ffffff;
+    font-size: 11pt;
+    font-weight: bold;
+    color: #009933;
+    filter: alpha(style=1, opacity=100, finishopacity=90);
+}
+
+/* メッセージ (異常) */
+.message-error {
+    width: 100%;
+    background-color: #ffffff;
+    font-size: 11pt;
+    font-weight: bold;
+    color: #ff0000;
+    filter: alpha(style=1, opacity=100, finishopacity=90);
+}
+
+/*------------------------------------------------------------------------------
+ * 独自クラス (共通コンポーネント)
+ *----------------------------------------------------------------------------*/
+/* ラベル */
+.label {
+    text-align: right;
+    padding-right: 5px;
+}
+
+/* ラベル (必須表示: '*') */
+.label-required {
+    color: red;
+    font-size: 11pt;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* ボタン */
+.button {
+    color: #ccffff;
+    background-color: transparent;
+    font-size: 11pt;
+    font-weight: bold;
+    border: 1px solid #c0c0c0;
+    width: 80px;
+}
+
+/* ボタン (参照) */
+.button-ref {
+    color: #003399;
+    background-color: transparent;
+    font-size: 9pt;
+    font-weight: bold;
+    border: 1px outset #c0c0c0;
+    width: 40px;
+}
+
+/* テキスト */
+.text {
+}
+
+/* テキスト (数値) */
+.text-number {
+    text-align: right;
+    ime-mode: disabled;
+}
+
+/* テキスト (日付) */
+.text-date {
+    text-align: center;
+    ime-mode: disabled;
+}
+
+/* テキスト (エラー) */
+.text-error {
+    background-color: lightcoral;
+}
+
+/* テキスト (読取専用) */
+.text-readonly {
+    background: transparent:
+}
+
+/* テキスト (左揃え) */
+.text-left {
+    text-align: left;
+}
+
+/* テキスト (中央揃え) */
+.text-center {
+    text-align: center;
+}
+
+/* テキスト (右揃え) */
+.text-right {
+    text-align: right;
+}
+
+/* チェックボックス */
+.checkbox {
+    border: 0px;
+}
+
+/* ラジオボタン */
+.radio {
+    border: 0px;
+}
+
+/* リストボックス */
+.listbox {
+}
+
+/* リンク */
+.link {
+}
+
+/* データグリッド */
+.detail {
+    border: 1px solid #909090;
+    margin: 10px;
+}
+
+/* データグリッド 行 (1) */
+.detail-tr {
+    background-color: #CCCCCC;
+    border: 1px solid #909090;
+}
+
+/* データグリッド 行 (2) */
+.detail-tr-alternate {
+    background-color: #CCCCCC;
+    border: 1px solid #909090;
+}
+
+/* データグリッド 行 (ハイライト) */
+.detail-tr-hilight {
+    background-color: #FFCC33;
+    border: 1px solid #909090;
+}
+
+/* データグリッド 列見出し */
+.detail-th {
+    border: 1px solid #909090;
+}
+
+/* データグリッド 列 */
+.detail-td {
+    border: 1px solid #909090;
+}
