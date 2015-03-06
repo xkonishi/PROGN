@@ -1,0 +1,101 @@
+/*------------------------------------------------------------------------------
+ * HTMLタグ (オーバライド)
+ *----------------------------------------------------------------------------*/
+/* 全体 */
+body {
+    background: #eeeeee;
+    color: #000000;
+    font-family: Verdana;
+    font-size: 10pt;
+    margin: 0px;
+    padding: 0px;
+    overflow: auto;
+}
+
+/*------------------------------------------------------------------------------
+ * 独自クラス (オーバライド)
+ *----------------------------------------------------------------------------*/
+/* アプリケーション部 */
+.application {
+    overflow: auto;
+    position: relative;
+    /* IE6 */
+    width: 1010px;
+    height: 548px;
+}
+
+/* アプリケーション部 (ダイアログ) */
+.application-dialog {
+    overflow: auto;
+    position: relative;
+    /* IE6 */
+    width: 670px;
+    height: 425px;
+}
+
+/*------------------------------------------------------------------------------
+ * 独自クラス
+ *----------------------------------------------------------------------------*/
+/* メニュータイトル */
+.menu-title {
+    color : blueviolet;
+    font-size : 11pt;
+    font-weight: bold;
+    letter-spacing : 3px;
+}
+
+/* メニューボタン */
+.menu-button {
+    color: #003399;
+    background-color: transparent;
+    font-size: 11pt;
+    font-weight: bold;
+    border: 1px outset #c0c0c0;
+    margin : 5px 0px 10px 10px;
+    padding : 2px 0px 2px 0px;
+    width: 160px;
+    height: 40px;
+}
+
+/* メニューボタン (ハイライト) */
+.menu-button-hilight {
+    color: #ffffff;
+    background-color: #A579B5;
+    font-size: 11pt;
+    font-weight: bold;
+    border: 1px outset #c0c0c0;
+    margin : 5px 0px 10px 10px;
+    padding : 2px 0px 2px 0px;
+    width: 160px;
+    height: 40px;
+    filter: alpha(style=2, opacity=50, finishopacity=100);
+}
+
+/* マイメニューボタン */
+.my-menu-button {
+    color: #003399;
+    background-color: transparent;
+    font-size: 11pt;
+    font-weight: bold;
+    text-align: left;
+    border: 0px;
+    border-bottom: 1px dotted #c0c0c0;
+    margin : 5px 0px 0px 10px;
+    padding : 2px 0px 2px 0px;
+    width: 160px;
+}
+
+/* マイメニューボタン (ハイライト) */
+.my-menu-button-hilight {
+    color: #ffffff;
+    background-color: #A579B5;
+    font-size: 11pt;
+    font-weight: bold;
+    text-align: left;
+    border: 0px;
+    border-bottom: 1px dotted #c0c0c0;
+    margin : 5px 0px 0px 10px;
+    padding : 2px 0px 2px 0px;
+    width: 160px;
+    filter: alpha(style=2, opacity=50, finishopacity=100);
+}
