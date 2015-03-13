@@ -8,6 +8,7 @@ import java.util.List;
 
 import jp.co.canonits.prognerex.aptemplate_desktopaplike.CC2000.service.CodeService;
 import jp.co.canonits.prognerex.aptemplate_desktopaplike.CC2000.service.ListService;
+import jp.co.canonits.prognerex.aptemplate_desktopaplike.CC2060.page.CC2060C02;
 import jp.co.canonits.prognerex.aptemplate_desktopaplike.constants.AppConstants;
 import jp.co.canonits.prognerex.aptemplate_desktopaplike.dao.APTemplateGeneralJDBCUtilDao;
 import jp.co.canonits.prognerex.aptemplate_desktopaplike.dao.exception.APTemplateSQLException;
@@ -74,6 +75,7 @@ public class CC2060S02 extends BaseService{
         "SELECT COMPANYCD"
       +      ", MENUID"
       +      ", COALESCE(TO_CHAR(UPDDATE,'YYYY/MM/DD HH24:MI:SS'),' ') AS UPDDATE"
+      +      ", REVISION"
       +      ", MENUKBN"
       +      ", MAJORID"
       +      ", MINORID"
@@ -82,7 +84,10 @@ public class CC2060S02 extends BaseService{
       +      ", MENUNM"
       +      ", CLASSNM"
       + " FROM CCMENU"      
-      + " WHERE COMPANYCD = :COMPANYCD"      
+      + " WHERE COMPANYCD = :COMPANYCD"
+      +   " AND %s"
+//      +   " AND COALESCE(UPDDATE, ' ') BETWEEN COALESCE(:UPDDATE_FROM, COALESCE(UPDDATE, ' '))"
+//      +                                    " AND COALESCE(:UPDDATE_TO, COALESCE(UPDDATE, ' '))"
       + " ORDER BY COMPANYCD, MENUID, MENUKBN, MENUNO";
     
     protected final String SQL_LOCK_TABLE =
@@ -108,7 +113,7 @@ public class CC2060S02 extends BaseService{
       +      ", CLASSNM"
       + ") VALUES ("
       +      "  :COMPANYCD"
-      +      ", :ANKENNO"
+      +      ", :MENUID"
       +      ", SYSDATE, :INSUSRID, :INSPGID, SYSDATE, :UPDUSRID, :UPDPGID, 1"
       +      ", :MENUKBN"
       +      ", :MAJORID"
@@ -238,61 +243,67 @@ public class CC2060S02 extends BaseService{
          */
         private static final long serialVersionUID = 1L;
         
+        public String itemName;
+        public String itemValue;
+        public String itemCond;
+        
+        public String updFrom;
+        public String updTo;
     }
 
-    /**
-     * 条件部
-     * 
-     * @author Canon IT Solutions Inc. R&amp;D Center
-     * @version 2.3
-     */
-    public class Condition extends BaseServiceParameters{
-
-        /**
-         * シリアルバージョンUID
-         */
-        private static final long serialVersionUID = 1L;
-
-        /**
-         * 営業担当コード
-         */
-        public String EIGYO_TANTO_CD = "EIGYO_TANTO_CD";
-
-        /**
-         * 案件ＮＯ
-         */
-        public String ankenNo;
-
-        /**
-         * 案件名
-         */
-        public String ankenMei;
-
-        /**
-         * 進捗区分
-         */
-        public String shinchokuKbn;
-
-        /**
-         * 営業担当コード
-         */
-        public String eigyoTantoCd;
-
-        /**
-         * 営業担当名
-         */
-        public String eigyoTantoMei;
-
-        /**
-         * 受注日（Ｆｒｏｍ）
-         */
-        public String juchubiFrom;
-
-        /**
-         * 受注日（Ｔｏ）
-         */
-        public String juchubiTo;
-    }
+//    /**
+//     * 条件部
+//     * 
+//     * @author Canon IT Solutions Inc. R&amp;D Center
+//     * @version 2.3
+//     */
+//    public class Condition extends BaseServiceParameters{
+//
+//        /**
+//         * シリアルバージョンUID
+//         */
+//        private static final long serialVersionUID = 1L;
+//
+//        /**
+//         * 営業担当コード
+//         */
+//        public String EIGYO_TANTO_CD = "EIGYO_TANTO_CD";
+//
+//        /**
+//         * 案件ＮＯ
+//         */
+//        public String ankenNo;
+//
+//        /**
+//         * 案件名
+//         */
+//        public String ankenMei;
+//
+//        /**
+//         * 進捗区分
+//         */
+//        public String shinchokuKbn;
+//
+//        /**
+//         * 営業担当コード
+//         */
+//        public String eigyoTantoCd;
+//
+//        /**
+//         * 営業担当名
+//         */
+//        public String eigyoTantoMei;
+//
+//        /**
+//         * 受注日（Ｆｒｏｍ）
+//         */
+//        public String juchubiFrom;
+//
+//        /**
+//         * 受注日（Ｔｏ）
+//         */
+//        public String juchubiTo;
+//    }
     
     
     public class Detail2 extends BaseServiceParameters{
@@ -327,85 +338,85 @@ public class CC2060S02 extends BaseService{
         public int operation;
     }
 
-    /**
-     * 明細部I/Oパラメータ
-     * 
-     * @author Canon IT Solutions Inc. R&amp;D Center
-     * @version 2.3
-     */
-    public class Detail extends BaseServiceParameters{
-
-        /**
-         * シリアルバージョンUID
-         */
-        private static final long serialVersionUID = 1L;        
-
-        /**
-         * 案件ＮＯ
-         */
-        public String ANKEN_NO = "ANKEN_NO";
-
-        /**
-         * 営業担当コード
-         */
-        public String EIGYO_TANTO_CD = "EIGYO_TANTO_CD";
-
-        /**
-         * 案件ＮＯ
-         */
-        public String ankenNo;
-
-        /**
-         * 案件区分
-         */
-        public String ankenKbn;
-
-        /**
-         * 営業区分
-         */
-        public String eigyoKbn;
-
-        /**
-         * 進捗区分
-         */
-        public String shinchokuKbn;
-
-        /**
-         * 案件名
-         */
-        public String ankenMei;
-
-        /**
-         * 営業担当コード
-         */
-        public String eigyoTantoCd;
-
-        /**
-         * 営業担当名
-         */
-        public String eigyoTantoMei;
-
-        /**
-         * 受注日
-         */
-        public String juchubi;
-
-        /**
-         * 受注金額
-         */
-        public double juchuKingaku;
-
-        /**
-         * リビジョン
-         */
-        public int revision;
-
-        /**
-         * 処理モード
-         */
-        public int operation;
-
-    }
+//    /**
+//     * 明細部I/Oパラメータ
+//     * 
+//     * @author Canon IT Solutions Inc. R&amp;D Center
+//     * @version 2.3
+//     */
+//    public class Detail extends BaseServiceParameters{
+//
+//        /**
+//         * シリアルバージョンUID
+//         */
+//        private static final long serialVersionUID = 1L;        
+//
+//        /**
+//         * 案件ＮＯ
+//         */
+//        public String ANKEN_NO = "ANKEN_NO";
+//
+//        /**
+//         * 営業担当コード
+//         */
+//        public String EIGYO_TANTO_CD = "EIGYO_TANTO_CD";
+//
+//        /**
+//         * 案件ＮＯ
+//         */
+//        public String ankenNo;
+//
+//        /**
+//         * 案件区分
+//         */
+//        public String ankenKbn;
+//
+//        /**
+//         * 営業区分
+//         */
+//        public String eigyoKbn;
+//
+//        /**
+//         * 進捗区分
+//         */
+//        public String shinchokuKbn;
+//
+//        /**
+//         * 案件名
+//         */
+//        public String ankenMei;
+//
+//        /**
+//         * 営業担当コード
+//         */
+//        public String eigyoTantoCd;
+//
+//        /**
+//         * 営業担当名
+//         */
+//        public String eigyoTantoMei;
+//
+//        /**
+//         * 受注日
+//         */
+//        public String juchubi;
+//
+//        /**
+//         * 受注金額
+//         */
+//        public double juchuKingaku;
+//
+//        /**
+//         * リビジョン
+//         */
+//        public int revision;
+//
+//        /**
+//         * 処理モード
+//         */
+//        public int operation;
+//
+//    }
 
     /**
      * リスト要素
@@ -569,9 +580,11 @@ public class CC2060S02 extends BaseService{
 
             if(success){
                 // SQLの設定
-                dao.bindSQL(SQL_SELECT_TABLE);
+                dao.bindSQL(String.format(SQL_SELECT_TABLE, this.getSearchConditionText(condition)));
                 dao.clearParameters();
                 dao.setParameter("COMPANYCD", this.getLoginModel().getCompanyCode());
+                dao.setParameter("UPDDATE_FROM", condition.updFrom);
+                dao.setParameter("UPDDATE_TO", condition.updTo);
                 
 //                dao.bindSQL(SQL_SELECT_CPANKENDAICHO);
 //                dao.clearParameters();
@@ -590,6 +603,7 @@ public class CC2060S02 extends BaseService{
                     detail.companyCode = rs.getString("COMPANYCD");
                     detail.menuId = rs.getString("MENUID");
                     detail.updDate = rs.getString("UPDDATE");
+                    detail.revision = rs.getInt("REVISION");
                     detail.menuKbn = rs.getString("MENUKBN");
                     detail.majorId = rs.getString("MAJORID");
                     detail.minorId = rs.getString("MINORID");
@@ -919,7 +933,7 @@ public class CC2060S02 extends BaseService{
             dao.setParameter("COMPANYCD", detail.companyCode);
             dao.setParameter("MENUID", detail.menuId);
             dao.setParameter("REVISION", detail.revision);
-
+            
 //            dao.bindSQL(SQL_LOCK_CPANKENDAICHO);
 //            dao.clearParameters();
 //            dao.setParameter("COMPANYCD", this.getLoginModel().getCompanyCode());
@@ -991,10 +1005,20 @@ public class CC2060S02 extends BaseService{
         // --------------------------------------------------
         try{
             // SQLの設定
-            dao.bindSQL(SQL_INSERT_CPANKENDAICHO);
+            dao.bindSQL(SQL_INSERT_TABLE);
             dao.clearParameters();
             dao.setParameter("COMPANYCD", detail.companyCode);
             dao.setParameter("MENUID", detail.menuId);
+            dao.setParameter("INSUSRID", this.getLoginModel().getUserId());
+            dao.setParameter("INSPGID", this.getProgramId());
+            dao.setParameter("UPDUSRID", this.getLoginModel().getUserId());
+            dao.setParameter("UPDPGID", this.getProgramId());            dao.setParameter("MENUKBN", detail.menuKbn);
+            dao.setParameter("MAJORID", detail.majorId);
+            dao.setParameter("MINORID", detail.minorId);
+            dao.setParameter("SCREENID", detail.screenId);
+            dao.setParameter("MENUNO", detail.menuNo);
+            dao.setParameter("MENUNM", detail.menuNm);
+            dao.setParameter("CLASSNM", detail.classNm);               
             
 //            dao.bindSQL(SQL_INSERT_CPANKENDAICHO);
 //            dao.clearParameters();
@@ -1199,7 +1223,7 @@ public class CC2060S02 extends BaseService{
             // SQLの設定
             dao.bindSQL(SQL_DELETE_TABLE);
             dao.setParameter("COMPANYCD", detail.companyCode);
-            dao.setParameter("ANKENNO", detail.menuId);
+            dao.setParameter("MENUID", detail.menuId);
 
 //            dao.bindSQL(SQL_DELETE_CPANKENDAICHO);
 //            dao.setParameter("COMPANYCD", this.getLoginModel().getCompanyCode());
@@ -1287,6 +1311,43 @@ public class CC2060S02 extends BaseService{
             throw e;
         }
 
+    }
+    
+    private String getSearchConditionText(Condition2 condition){
+        
+        String itemName = condition.itemName;
+        String itemValue = condition.itemValue;
+        String itemCond = condition.itemCond;
+        
+        if (itemName.isEmpty() || itemValue.isEmpty() || itemCond.isEmpty()) {
+            return "1=1";
+        }
+        
+        StringBuilder sb = new StringBuilder();
+        
+        if (itemCond.equals(CC2060C02.SEARCH_PREFIX)) {
+            sb.append(itemName+" LIKE '"+itemValue+"%'");
+        }
+        else if (itemCond.equals(CC2060C02.SEARCH_SUFFIX)) {
+            sb.append(itemName+" LIKE '%"+itemValue+"'");
+        }
+        else if (itemCond.equals(CC2060C02.SEARCH_PARTIAL)) {
+            sb.append(itemName+" LIKE '%"+itemValue+"%'");
+        }
+        else if (itemCond.equals(CC2060C02.SEARCH_COMPLETE)) {
+            sb.append(itemName+"='"+itemValue+"'");
+        }
+        else if (itemCond.equals(CC2060C02.SEARCH_ABOVE)) {
+            sb.append(itemName+">="+itemValue);
+        }
+        else if (itemCond.equals(CC2060C02.SEARCH_BELOW)) {
+            sb.append(itemName+"<="+itemValue);
+        }
+        else if (itemCond.equals(CC2060C02.SEARCH_EQUAL)) {
+            sb.append(itemName+"="+itemValue);
+        }
+        
+        return sb.toString();
     }
 
 }
