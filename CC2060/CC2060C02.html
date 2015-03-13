@@ -5,8 +5,8 @@
   <meta http-equiv="content-language" content="ja" />
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <meta http-equiv="content-style-type" content="text/css" />
-  <link rel="stylesheet" href="../progner.css" type="text/css" />
-  <link rel="stylesheet" href="../base.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../../../../webui/css/progner.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../../../../webui/css/base.css" type="text/css" />
 <wicket:head>
   <script type="text/javascript">
   <!--
@@ -20,51 +20,61 @@
 
 <body>
 <wicket:extend>
+    
+    <table style="margin: 5px 15x 0x 15px ; ">
+        <tr>
+            <td style="width: 140px">テーブル名（日本語）</td>
+            <td>メニューマスタ</td>
+        </tr>
+    </table>
 
 <div id="pnlCondition">
 <fieldset wicket:id="pnlCondition">
   <legend wicket:id="lblCondition">条件部</legend>
-  <table>
+  <table style="margin-left: 60px; ">
     <tr>
-      <td class="label" width="70px">案件NO</td>
-      <td width="80px">
-        <input type="text" id="txtAnkenNo" style="width: 60px; ime-mode: disabled;" maxlength="6" wicket:id="txtAnkenNo" />
-      </td>
-      <td class="label" style="width: 70px">案件名</td>
-      <td style="width: 250px">
-        <input type="text" id="txtAnkenMei" maxlength="30" style="width: 250px;" wicket:id="txtAnkenMei" />
-      </td>
-      <td class="label" style="width: 70px">進捗区分</td>
+        <td style="width: 160px">対象項目</td>
+        <td style="width: 120px">値</td>
+        <td style="width: 100px">条件</td>
+        <td style="width: 200px"> </td>
+        <td style="width: 120px">From</td>
+        <td style="width: 20px"> </td>
+        <td style="width: 120px">To</td>
+    </tr>
+    <tr>
       <td style="width: 160px">
-        <select id="lstShinchokuKbn" style="width: 160px;" wicket:id="lstShinchokuKbn">
-          <option value="10" selected="selected">10 内示・先行着手</option>
-          <option value="20">20 受注確定</option>
-          <option value="30">30 仕掛</option>
-          <option value="40">40 売上</option>
+        <select id="lstItemName" style="width: 160px;" wicket:id="lstItemName">
+          <option value="" selected="selected"> </option>
+          <option value="" selected="selected">会社コード</option>
+          <option value="" selected="selected">メニューID</option>
+          <option value="" selected="selected">メニュー区分</option>
+          <option value="" selected="selected">大分類ID</option>
+          <option value="" selected="selected">小分類ID</option>
+          <option value="" selected="selected">画面ID</option>
+          <option value="" selected="selected">メニュー項番</option>
+          <option value="" selected="selected">メニュー名</option>
+          <option value="" selected="selected">クラス名</option>
         </select>
       </td>
-    </tr>
-  </table>
-  <table>
-    <tr>
-      <td style="width: 70px" class="label">営業担当</td>
+      <td style="width: 140px">
+        <input type="text" id="txtValue" style="width: 140px; " size="10" wicket:id="txtValue" />
+      </td>
       <td style="width: 100px">
-        <input type="text" id="txtEigyoTantoCd" style="width: 100px; ime-mode: disabled;" maxlength="10" size="10" wicket:id="txtEigyoTantoCd" />
+        <select id="lstCondition" style="width: 100px;" wicket:id="lstCondition">
+            <option value="" selected="selected"> </option>
+            <option value="" selected="selected">前方一致</option>
+            <option value="" selected="selected">後方一致</option>
+            <option value="" selected="selected">部分一致</option>
+            <option value="" selected="selected">完全一致</option>
+        </select>
       </td>
-      <td style="width: 40px">
-        <span wicket:id="dlgEigyoTanto" />
-        <input type="button" name="btnEigyoTanto" class="button-ref" value="参照" wicket:id="btnEigyoTanto" />
-      </td>
-      <td style="width: 200px">
-        <input type="text" id="txtEigyoTantoMei" class="text-readonly" readonly="true" style="width: 200px;" wicket:id="txtEigyoTantoMei" />
-      </td>
-      <td style="width: 70px" class="label">受注日</td>
+      <td style="width: 200px; text-align: right; padding-right: 10px; ">更新日</td>
       <td style="width: 120px">
-        <input type="text" id="txtJuchubiFrom" style="width: 90px; ime-mode: disabled;" maxlength="10" wicket:id="txtJuchubiFrom" />
+        <input type="text" id="txtUpdFrom" style="width: 90px; ime-mode: disabled;" maxlength="10" wicket:id="txtUpdFrom" />
       </td>
       <td>-</td>
       <td style="width: 120px">
-        <input type="text" id="txtJuchubiTo" style="width: 90px; ime-mode: disabled;" maxlength="10" wicket:id="txtJuchubiTo" />
+        <input type="text" id="txtUpdTo" style="width: 90px; ime-mode: disabled;" maxlength="10" wicket:id="txtUpdTo" />
       </td>
     </tr>
   </table>
@@ -78,34 +88,34 @@
     <tr>
       <td>
         <div id="thead" style="width: 980px; overflow: hidden;">
-          <table width="1540px">
+          <table style="table-layout: fixed">
             <thead>
               <tr>
                 <th class="detail-th" width="30px">&nbsp;</th>
                 <th class="detail-th" width="40px">確定</th>
                 <th class="detail-th" width="40px">選択</th>
-                <th class="detail-th" width="70px"><span class="label-required">*</span> 会社コード</th>
-                <th class="detail-th" width="70px"><span class="label-required">*</span> メニューID</th>
-                <th class="detail-th" width="100px">更新日</th>
-                <th class="detail-th" width="100px">メニュー区分</th>
-                <th class="detail-th" width="100px">大分類ID</th>
-                <th class="detail-th" width="100px">小分類ID</th>
-                <th class="detail-th" width="100px">画面ID</th>
-                <th class="detail-th" width="100px">メニュー項番</th>
-                <th class="detail-th" width="200px">メニュー名</th>
-                <th class="detail-th" width="400px">クラス名</th>
+                <th class="detail-th" width="100px" style="text-align: left; padding-left: 5px; background-color: #ff3366"><span class="label-required">*</span>会社コード<br>VARCHAR2<br>(6)</th>
+                <th class="detail-th" width="100px" style="text-align: left; padding-left: 5px; background-color: #ff3366"><span class="label-required">*</span>メニューID<br>VARCHAR2<br>(6)</th>
+                <th class="detail-th" width="100px" style="text-align: left; padding-left: 5px;">更新日<br>TIMESTAMP<br>(6)</th>
+                <th class="detail-th" width="100px" style="text-align: left; padding-left: 5px;"><span class="label-required">*</span>メニュー区分<br>VARCHAR2<br>(1)</th>
+                <th class="detail-th" width="100px" style="text-align: left; padding-left: 5px;">大分類ID<br>VARCHAR2<br>(2)</th>
+                <th class="detail-th" width="100px" style="text-align: left; padding-left: 5px;">小分類ID<br>VARCHAR2<br>(4)</th>
+                <th class="detail-th" width="100px" style="text-align: left; padding-left: 5px;">画面ID<br>VARCHAR2<br>(6)</th>
+                <th class="detail-th" width="100px" style="text-align: left; padding-left: 5px;"><span class="label-required">*</span>メニュー項番<br>NUMBER<br>(2,0)</th>
+                <th class="detail-th" width="200px" style="text-align: left; padding-left: 5px;"><span class="label-required">*</span>メニュー名<br>VARCHAR2<br>(40)</th>
+                <th class="detail-th" width="400px" style="text-align: left; padding-left: 5px;">クラス名<br>VARCHAR2<br>(100)</th>
               </tr>
             </thead>
           </table>
         </div>
-        <div id="tbody" style="width: 980px; height: 370px; overflow: auto; position: relative;" onscroll="scroll();">
-          <table width="1540px">
+        <div id="tbody" style="width: 980px; height: 330px; overflow: auto; position: relative;" onscroll="scroll();">
+          <table style="table-layout: fixed">
             <colgroup>
               <col class="detail-th" width="30px" style="text-align: center;" />
               <col class="detail-td" width="40px" style="text-align: center;" />
               <col class="detail-td" width="40px" style="text-align: center;" />
-              <col class="detail-td" width="70px" />
-              <col class="detail-td" width="70px" />
+              <col class="detail-td" width="100px" />
+              <col class="detail-td" width="100px" />
               <col class="detail-td" width="100px" />
               <col class="detail-td" width="100px" />
               <col class="detail-td" width="100px" />
@@ -127,69 +137,35 @@
                 </td>
                   
                   <td class="detail-td">
-                      <input type="text" id="txtCompanyCode" style="width: 70px; ime-mode: disabled;" maxlength="6" wicket:id="txtCompanyCode" />
+                      <input type="text" id="txtCompanyCode" style="width: 100px; ime-mode: disabled;" maxlength="6" wicket:id="txtCompanyCode" />
                   </td>
                   <td class="detail-td">
-                      <input type="text" id="txtMenuId" style="width: 70px; ime-mode: disabled;" maxlength="6" wicket:id="txtMenuId" />
+                      <input type="text" id="txtMenuId" style="width: 100px; ime-mode: disabled;" maxlength="6" wicket:id="txtMenuId" />
                   </td>
                   <td class="detail-td">
-                      <input type="text" id="txtUpdDate" style="width: 100px; ime-mode: disabled;" maxlength="6" wicket:id="txtUpdDate" />
+                      <input type="text" id="txtUpdDate" style="width: 100px; ime-mode: disabled;" wicket:id="txtUpdDate" />
                   </td>
                   <td class="detail-td">
-                      <input type="text" id="txtMenuKbn" style="width: 100px; ime-mode: disabled;" maxlength="6" wicket:id="txtMenuKbn" />
+                      <input type="text" id="txtMenuKbn" style="width: 100px; ime-mode: disabled;" maxlength="1" wicket:id="txtMenuKbn" />
                   </td>
                   <td class="detail-td">
-                      <input type="text" id="txtMajorId" style="width: 100px; ime-mode: disabled;" maxlength="6" wicket:id="txtMajorId" />
+                      <input type="text" id="txtMajorId" style="width: 100px; ime-mode: disabled;" maxlength="2" wicket:id="txtMajorId" />
                   </td>
                   <td class="detail-td">
-                      <input type="text" id="txtMinorId" style="width: 100px; ime-mode: disabled;" maxlength="6" wicket:id="txtMinorId" />
+                      <input type="text" id="txtMinorId" style="width: 100px; ime-mode: disabled;" maxlength="4" wicket:id="txtMinorId" />
                   </td>
                   <td class="detail-td">
                       <input type="text" id="txtScreenId" style="width: 100px; ime-mode: disabled;" maxlength="6" wicket:id="txtScreenId" />
                   </td>
                   <td class="detail-td">
-                      <input type="text" id="txtMenuNo" style="width: 100px; ime-mode: disabled;" maxlength="6" wicket:id="txtMenuNo" />
+                      <input type="text" id="txtMenuNo" style="width: 100px; ime-mode: disabled;" maxlength="2" wicket:id="txtMenuNo" />
                   </td>
                   <td class="detail-td">
-                      <input type="text" id="txtMenuNm" style="width: 200px; ime-mode: disabled;" maxlength="6" wicket:id="txtMenuNm" />
+                      <input type="text" id="txtMenuNm" style="width: 200px; " maxlength="40" wicket:id="txtMenuNm" />
                   </td>
                   <td class="detail-td">
-                      <input type="text" id="txtClassNm" style="width: 400px; ime-mode: disabled;" maxlength="6" wicket:id="txtClassNm" />
+                      <input type="text" id="txtClassNm" style="width: 400px; ime-mode: disabled;" maxlength="100" wicket:id="txtClassNm" />
                   </td>
-                 
-                  
-<!--
-                <td class="detail-td">
-                  <input type="text" id="txtAnkenNo" style="width: 70px; ime-mode: disabled;" maxlength="6" wicket:id="txtAnkenNo" />
-                </td>
-                <td class="detail-td">
-                  <select id="lstAnkenKbn" style="width: 180px;" wicket:id="lstAnkenKbn">
-                  </select>
-                </td>
-                <td class="detail-td">
-                  <select id="lstEigyoKbn" style="width: 180px;" wicket:id="lstEigyoKbn">
-                  </select>
-                </td>
-                <td class="detail-td">
-                  <select id="lstShinchokuKbn" style="width: 180px;" wicket:id="lstShinchokuKbn">
-                  </select>
-                </td>
-                <td class="detail-td">
-                  <input type="text" id="txtAnkenMei" style="width: 200px;" wicket:id="txtAnkenMei" />
-                </td>
-                <td class="detail-td">
-                  <input type="text" id="txtEigyoTantoCd" style="width: 100px; ime-mode: disabled;" maxlength="10" wicket:id="txtEigyoTantoCd" />
-                  <span wicket:id="dlgEigyoTanto" />
-                  <input type="button" id="btnEigyoTanto" style="width: 40px;" class="button-ref" value="参照" wicket:id="btnEigyoTanto" />
-                  <input type="text" id="txtEigyoTantoMei" class="text-readonly" style="width: 170px;" readonly="true" wicket:id="txtEigyoTantoMei" />
-                </td>
-                <td class="detail-td">
-                  <input type="text" id="txtJuchubi" style="width: 90px; ime-mode: disabled;" maxlength="10" wicket:id="txtJuchubi" />
-                </td>
-                <td class="detail-td">
-                  <input type="text" id="txtJuchuKingaku" class="text-right" style="width: 100px; ime-mode: disabled;" maxlength="10" wicket:id="txtJuchuKingaku" />
-                </td>
--->
               </tr>
             </tbody>
           </table>
@@ -201,8 +177,6 @@
   </table>
 </fieldset>
 </div>
-
-<span wicket:id="dlgPrint11" />
 
 </wicket:extend>
 </body>
