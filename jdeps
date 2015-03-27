@@ -1,3 +1,0 @@
-jdeps -R -s -cp * *.jar
-jdeps -R -s -cp * -dotoutput .\dot *.jar
-dot -Tpng .\summary.dot -o a.png -Gcharset=latin1
