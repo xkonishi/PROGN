@@ -1,0 +1,82 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>jp.co.canonits</groupId>
+	<artifactId>prognerCoreCommon</artifactId>
+	<packaging>jar</packaging>
+	<version>2.2</version>
+	<name>PROGNER EX for Java Servlet Core Common Library</name>
+	<description>PROGNER EX for Java Servlet コアの共通プロジェクト。全てのコンポーネントから参照されるクラス群を保持する。</description>
+	<parent>
+		<groupId>jp.co.canonits</groupId>
+		<artifactId>prognerMasterProject</artifactId>
+		<version>2.2</version>
+	</parent>
+	<dependencies>
+		<!-- ロギングライブラリへの依存関係 -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.5.8</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.5.8</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>1.5.8</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.14</version>
+		</dependency>
+		<!-- Commonsへの依存 -->
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-validator</groupId>
+			<artifactId>commons-validator</artifactId>
+			<version>1.3.1</version>
+		</dependency>
+		<!-- Commons Validator 1.3.1はCommons Collections 2.1に依存しているが、 -->
+		<!-- DbUnit 2.4.9がCommons Collections 3.2.1に依存しており、 -->
+		<!-- Commons Collections 2.1 to 3.2.1は互換性が担保されているため、 -->
+		<!-- 明示的にCommons Collections 3.2.1を利用する -->
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+		<!-- xml-commons（DOM/SAX etc実装）への依存関係 -->
+		<!-- Commons Validatorが依存するCommons Digesterが依存しているが、通常JavaSEによって提供済みである -->
+		<!-- 本実装がクラスパスに含まれると、WebSphere環境で実行時エラー（DocumentBuilderが見つからない）が発生する -->
+		<!-- よって、scopeをprovidedとし、実行環境にて提供する -->
+		<dependency>
+			<groupId>xml-apis</groupId>
+			<artifactId>xml-apis</artifactId>
+			<version>2.0.2</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- Jakarta OROへの依存 commons-validatorがoptional：trueで依存しており、これが無いとClassNotFoundExceptionとなるメソッドがある -->
+		<!-- Jakarta ORO自体は2011/07現在、開発停止となっているので将来的には依存関係を外したい -->
+		<dependency>
+			<groupId>oro</groupId>
+			<artifactId>oro</artifactId>
+			<version>2.0.8</version>
+		</dependency>
+		<!-- JUnitへの依存関係 -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.2</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+</project>
