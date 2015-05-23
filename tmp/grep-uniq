@@ -1,0 +1,1 @@
+cat xx.txt | grep '^\[Loaded' | awk -F 'from' '{print $NF}' | sort | uniq | tr -d '] '
