@@ -1,0 +1,88 @@
+basic: アプレットの分解を開始しています
+basic: アプレットの分解が終了しました
+basic: 削除されたプログレス・リスナー: sun.plugin.util.ProgressMonitorAdapter@1622542
+basic: PluginMain.unregisterApplet: 10 from mananger sun.plugin2.applet.Applet2Manager@1fc625e
+basic: 追加されたプログレス・リスナー: sun.plugin.util.ProgressMonitorAdapter@bdfe95
+security: Expected Main URL: http://paul:8080/progner/reports/elixir/print/clientsideprint.jar
+basic: Plugin2ClassLoader.addURL parent called for http://paul:8080/progner/reports/elixir/print/clientsideprint.jar
+basic: Plugin2ClassLoader.addURL parent called for http://paul:8080/progner/reports/elixir/print/glint.jar
+basic: Plugin2ClassLoader.addURL parent called for http://paul:8080/progner/reports/elixir/print/reportserver-api.jar
+basic: Plugin2ClassLoader.addURL parent called for http://paul:8080/progner/reports/elixir/print/log4j-1.2.13.jar
+Missing Permissions manifest attribute in main jar: http://paul:8080/progner/reports/elixir/print/clientsideprint.jar
+security: Missing Codebase manifest attribute for: http://paul:8080/progner/reports/elixir/print/clientsideprint.jar
+security: Missing Application-Library-Allowable-Codebase manifest attribute for: http://paul:8080/progner/reports/elixir/print/clientsideprint.jar
+security: CertPath APIを使用して証明書チェーンを検証
+security: SSV validation:
+    running: 1.8.0_45
+    requested: null
+    range: null
+    javaVersionParam: null
+    Rule Set version: null
+network: Created version ID: 1.8.0.45
+network: Created version ID: 1.8.0.45
+security: continue with running version
+network: Created version ID: 1.8.0.45
+network: Created version ID: 1.8
+network: Created version ID: 8.0.45
+security: Missing Codebase manifest attribute for: http://paul:8080/progner/reports/elixir/print/clientsideprint.jar
+security: Missing Application-Library-Allowable-Codebase manifest attribute for: http://paul:8080/progner/reports/elixir/print/clientsideprint.jar
+security: CertPath APIを使用して証明書チェーンを検証
+basic: アプレットがロードされました。
+basic: アプレットがサイズ変更され親コンテナに追加されました
+basic: PERF: AppletExecutionRunnable - applet.init() BEGIN ; jvmLaunch dt 199625 us, pluginInit dt 2778149364 us, TotalTime: 2778348989 us
+basic: アプレットが初期化されました
+basic: アプレットを開始しています
+basic: 完全ロールアップが完了しました
+***　ClientsidePrintApplet　********************************************************************
+■レポートサーバへの接続パラメータを取得（開始）
+■レポートサーバへの接続パラメータを取得（終了）
+SERVER_NAME      :fw-ap-server
+SERVER_PORT      :7001
+USERNAME         :progner
+PASSWORD         :progner
+TARGET           :me
+TEMPLATE         :/PROGNER/forms/CX1030R/CX1030R03.rml
+DATASOURCE       :http://10.70.173.21:8080/progner/reports/elixir/data/CX1030R03.20150617131644.csv
+CREATOR_COMPANY  :キヤノンITソリューションズ株式会社
+CREATOR_DIVISION :209000 第二プロジェクト
+PRINTER          :iR C5185N_三田7F C68059
+COPIES           :1
+■レポートクライアントの生成（開始）
+■レポートクライアントの生成（終了）
+■レポートサーバへのリクエストを発行（開始）
+2673825 [thread applet-jp.co.canonits.progner.report.ClientsidePrintApplet-11] WARN com.elixirtech.ers2.client.ERSClient  - Net connection Exception
+com.elixirtech.net.NetException: Bad Header: 0x4854 expected 0x7F07
+	at com.elixirtech.net.MessageChannel.readMessage(MessageChannel.java:90)
+	at com.elixirtech.net.NetClient.receive(NetClient.java:63)
+	at com.elixirtech.net.client.ElixirClient.send(ElixirClient.java:190)
+	at com.elixirtech.ers2.client.ERSClient$ConnectionObject.authenticateConnection(ERSClient.java:841)
+	at com.elixirtech.ers2.client.ERSClient$ConnectionObject.open(ERSClient.java:825)
+	at com.elixirtech.ers2.client.ERSClient.connectAndSend(ERSClient.java:695)
+	at com.elixirtech.ers2.client.ERSClient.renderReport(ERSClient.java:508)
+	at com.elixirtech.ers2.client.ERSClient.renderReport(ERSClient.java:386)
+	at com.elixirtech.ers2.client.ERSClient.renderReport(ERSClient.java:364)
+	at jp.co.canonits.progner.report.ClientsidePrintApplet.print(ClientsidePrintApplet.java:178)
+	at jp.co.canonits.progner.report.ClientsidePrintApplet.start(ClientsidePrintApplet.java:87)
+	at com.sun.deploy.uitoolkit.impl.awt.AWTAppletAdapter.start(Unknown Source)
+	at sun.plugin2.applet.Plugin2Manager$AppletExecutionRunnable.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+com.elixirtech.net.NetException: Bad Header: 0x4854 expected 0x7F07
+	at com.elixirtech.net.MessageChannel.readMessage(MessageChannel.java:90)
+	at com.elixirtech.net.NetClient.receive(NetClient.java:63)
+	at com.elixirtech.net.client.ElixirClient.send(ElixirClient.java:190)
+	at com.elixirtech.ers2.client.ERSClient$ConnectionObject.authenticateConnection(ERSClient.java:841)
+	at com.elixirtech.ers2.client.ERSClient$ConnectionObject.open(ERSClient.java:825)
+	at com.elixirtech.ers2.client.ERSClient.connectAndSend(ERSClient.java:695)
+	at com.elixirtech.ers2.client.ERSClient.renderReport(ERSClient.java:508)
+	at com.elixirtech.ers2.client.ERSClient.renderReport(ERSClient.java:386)
+	at com.elixirtech.ers2.client.ERSClient.renderReport(ERSClient.java:364)
+	at jp.co.canonits.progner.report.ClientsidePrintApplet.print(ClientsidePrintApplet.java:178)
+	at jp.co.canonits.progner.report.ClientsidePrintApplet.start(ClientsidePrintApplet.java:87)
+	at com.sun.deploy.uitoolkit.impl.awt.AWTAppletAdapter.start(Unknown Source)
+	at sun.plugin2.applet.Plugin2Manager$AppletExecutionRunnable.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆
+Bad Header: 0x4854 expected 0x7F07
+basic: アプレットが表示可能になりました
+basic: アプレットが開始されました
+basic: アプレットの開始がクライアントに通知されました
