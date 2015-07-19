@@ -1,0 +1,3 @@
+var _e = document.createEvent("KeyboardEvent");
+_e.initKeyboardEvent("keydown",true,true,null,'Tab',0,null,null,'ja');
+window.dispatchEvent(_e)
