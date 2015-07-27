@@ -1,0 +1,66 @@
+function setNextFocus(event) {
+	
+	//Enterキーでなければ終了
+	if (event.keyCode != 13) return;
+
+	//Enterキーのデフォルト処理を無効にする
+	if (event.preventDefault) event.preventDefault();
+	
+	var inputAll = document.querySelectorAll('input, select, textarea');
+	var elements=[], i;
+	
+	//フォーカス対象の項目を取得する
+	for(i=0; i<inputAll.length; i++) {
+		var el = inputAll[i];
+		var checkType = true;
+        switch (el.type) {
+	        case "text" :
+	            break;
+	        case "password" :
+	            break;
+	        case "select-one" :
+	            break;
+	        case "select-multiple" :
+	            break;
+	        case "checkbox" :
+	            break;
+	        case "radio" :
+	            break;
+	        case "file" :
+	            break;
+	        case "textarea" :
+	            break;
+	        case "button" :
+	            break;
+	        default:
+	        	checkType = false;
+	        	break;
+	    }
+        
+        if (checkType && !el.isDisabled) {
+        	elements[elements.length] = el;
+        }
+	}
+	
+	//Enterキーが押された項目のインデックスを取得する
+	var index = -1;
+	for(i=0; i<elements.length; i++) {
+		if (elements[i] == event.srcElement) {
+			index = i;
+			break;
+		}
+	}
+	if (index == -1) return;
+
+	//次にカーソル移動する項目のインデックスを取得する
+	var next;
+	if (!event.shiftKey) {
+		next = (index+1) < elements.length ? index+1 : 0;
+	}
+	else {
+		next = (index-1) >= 0 ? index-1 : elements.length-1;
+	}
+	
+	//次項目にフォーカスを設定する
+	elements[next].focus();
+}
