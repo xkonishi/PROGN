@@ -1,0 +1,86 @@
+	public static WebClientInfo createWebClientInfo(WebRequestCycle requestCycle) {
+		
+		String targetClassName  = "org.apache.wicket.protocol.http.request.WebClientInfo";
+		String targetClassNameEx  = "org.apache.wicket.protocol.http.request.WebClientInfoEx";
+		String targetClassName2  = "org.apache.wicket.request.cycle.RequestCycle";
+		String targetClassName3  = "org.apache.wicket.protocol.http.ClientProperties";
+		
+		try {
+			ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+			
+			URL url1 = new URL("file:///C:/canon-its/progner/java/web/WEB-INF/lib_wicket-6.20/wicket-core-6.20.0.jar");
+			URL url2 = new URL("file:///C:/canon-its/progner/java/web/WEB-INF/lib_wicket-6.20/wicket-util-6.20.0.jar");
+			URL url3 = new URL("file:///C:/canon-its/progner/java/web/WEB-INF/lib_wicket-6.20/wicket-request-6.20.0.jar");
+			URL url4 = new URL("file:///C:/canon-its/progner/java/web/WEB-INF/lib/slf4j-api-1.5.8.jar");
+			URL url5 = new URL("file:///C:/canon-its/progner/java/web/WEB-INF/lib/slf4j-log4j12-1.5.8.jar");
+			URL url6 = new URL("file:///C:/canon-its/progner/java/web/WEB-INF/lib/log4j-1.2.14.jar");
+			URLClassLoader ucl = new URLClassLoader(new URL[] {url1,url2,url3,url4,url5,url6});
+			Class<?> classS = ucl.loadClass(targetClassName);
+			Class<?> classSEx = ucl.loadClass(targetClassNameEx);
+			Class<?> classS2 = ucl.loadClass(targetClassName2);
+			Class<?> classS3 = ucl.loadClass(targetClassName3);
+			
+			//Method m = classS.getDeclaredMethod("setInternetExplorerProperties");
+			//m.setAccessible(true);
+			//m.invoke(classS);
+			
+			//WebClientInfoEx ex = (WebClientInfoEx)classSEx.newInstance();
+			//Method method = classSEx.getDeclaredMethod("getName");
+			//String s = (String)method.invoke(classSEx);
+			
+			
+//			Method method = classS2.getDeclaredMethod("set", new Class[]{classS2});
+//			Object rcyc = method.invoke(classS2, );
+			
+//			ThreadLocal<RequestCycle> current = new ThreadLocal<RequestCycle>();
+//			current.set(requestCycle);
+//			//ThreadContext.setRequestCycle(requestCycle);
+//			Method method = classS2.getDeclaredMethod("get");
+//			Object rcyc = method.invoke(classS2);
+			
+//			RequestCycle cp2 = (RequestCycle)classS2.newInstance();
+//			ClientProperties cp3 = (ClientProperties)classS3.newInstance();
+			Object o1 = classS.getConstructor(classS2).newInstance(RequestCycle.get());
+			Object o3 = classS3.newInstance();//OK
+
+//			Constructor<?> cons = classS.getConstructor(RequestCycle.class);
+//			WebClientInfo ci = (WebClientInfo)classS.getConstructor(RequestCycle.class).newInstance(requestCycle);
+//			ClientProperties ps = ci.getProperties();
+			
+			
+			
+			
+			
+            URL[] urls = new URL[1];
+//            urls[0] = new URL("jar:file://canon-its/progner/java/web/WEB-INF/lib_dynamic/wicket-core-6.19.0.jar!/");
+            urls[0] = new URL("jar:file://canon-its/progner/java/web/WEB-INF/lib/wicket-1.4.23.jar!/");
+            ClassLoader parent = ClassLoader.getSystemClassLoader();
+            Class<?> fh = parent.loadClass("org.apache.juli.FileHandler");
+            URLClassLoader urlClazzloader = new URLClassLoader(urls, parent);
+//            Class<?> clazz = urlClazzloader.loadClass(targetClassName);
+
+
+            
+//			File f = new File("C:/canon-its/progner/java/web/WEB-INF/lib_dynamic/");
+			File f = new File("/C:/canon-its/progner/java/web/WEB-INF/lib_dynamic/wicket-core-6.19.0.jar");
+			URL[] cp = {f.toURI().toURL()};
+//			URLClassLoader urlcl = new URLClassLoader(cp);
+			URLClassLoader urlcl = URLClassLoader.newInstance(cp);
+//			Class<?> clazz = urlcl.loadClass(targetClassName);
+//			Class<?> cls = Class.forName(targetClassName, true, urlcl);
+//			urlcl.close();
+			
+			
+			Class<?> c = Class.forName(targetClassName);
+//			Object o1 = c.getConstructor(WebRequestCycle.class);
+			WebClientInfo o = (WebClientInfo)c.getConstructor(WebRequestCycle.class).newInstance(requestCycle);
+			ClientProperties p = o.getProperties();
+			boolean b = p.isBrowserInternetExplorer();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
