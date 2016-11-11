@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+  <script src="jquery.js"></script>
+
+  <script type="text/javascript">
+  var menu;
+  $(function () {
+    menu = getRoot();
+    
+    $('#mybutton').click(function(){
+      window.open('index.html', '_blank', 'width=800,height=600');
+    });
+    $('#mybutton2').click(function(){
+      menu.focus();
+    });
+
+    function getRoot(win) {
+      if (!win) win = window;
+      if (win.opener) {
+        return getRoot(win.opener);
+      }
+      else {
+        return win;
+      }
+    }
+  });
+  </script>
+</head>
+<body>
+  <input type="button" id="mybutton" value="Click!!"/>
+  <input type="button" id="mybutton2" value="Focus!!"/>
+</body>
+</html>
