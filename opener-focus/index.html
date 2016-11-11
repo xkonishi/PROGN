@@ -7,30 +7,36 @@
 
   <script type="text/javascript">
   var menu;
-  $(function () {
+
+  window.addEventListener("load", function(){
     menu = getRoot();
+  }, false);
+
+  function getRoot(win) {
+    if (!win) win = window;
+    if (win.opener) {
+      return getRoot(win.opener);
+    }
+    else {
+      return win;
+    }
+  }
+
+  $(function () {
     
     $('#mybutton').click(function(){
       window.open('index.html', '_blank', 'width=800,height=600');
     });
+    /*
     $('#mybutton2').click(function(){
       menu.focus();
-    });
+    });*/
 
-    function getRoot(win) {
-      if (!win) win = window;
-      if (win.opener) {
-        return getRoot(win.opener);
-      }
-      else {
-        return win;
-      }
-    }
   });
   </script>
 </head>
 <body>
-  <input type="button" id="mybutton" value="Click!!"/>
-  <input type="button" id="mybutton2" value="Focus!!"/>
+  <input type="button" id="mybutton" value="Click!!" />
+  <input type="button" id="mybutton2" value="Focus!!" onclick="menu.focus();" />
 </body>
 </html>
